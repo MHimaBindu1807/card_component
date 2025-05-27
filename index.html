@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Full Stack Developer Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://i.pinimg.com/736x/0d/14/7c/0d147c411a8ce284e733b4db4294712a.jpg'); /* Full stack theme */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .profile {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 15px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .cards-container {
+      margin-left: 320px;
+      margin-top: 50px;
+      width: calc(100% - 340px);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 280px;
+      height: 200px;
+      perspective: 1000px;
+      margin: 20px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .flip-card-front img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    /* .flip-card-back {
+      background-color: #2ecc71;
+      transform: rotateY(180deg);
+      flex-direction: column;
+      font-size: 16px;
+      font-weight: normal;
+    } */
+    .flip-card-back {
+  transform: rotateY(180deg);
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: normal;
+  color: white;
+}
+.flip-card-front.resume {
+  background-color: beige;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(245, 245, 220, 0.8);
+}
+
+.flip-card-front.linkedin {
+  background-color: #0077b5;
+  box-shadow: 0 4px 20px rgba(0, 119, 181, 0.6);
+}
+
+.flip-card-front.github {
+  background-color: #000000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.flip-card-front.achievements {
+  background-color: #2ecc71;
+  box-shadow: 0 4px 20px rgba(46, 204, 113, 0.6);
+}
+
+.flip-card-front.hackerrank {
+  background-color: #e74c3c;
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.6);
+}
+
+.flip-card-front.projects {
+  background-color: pink;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+}
+
+.back-resume {
+  background-color: rgba(245, 245, 220, 0.9);
+  color: #333;
+  box-shadow: 0 4px 20px rgba(245, 245, 220, 0.8);
+}
+
+.back-linkedin {
+  background-color: rgba(0, 119, 181, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 119, 181, 0.6);
+}
+
+.back-github {
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+.back-achievements {
+  background-color: rgba(46, 204, 113, 0.9);
+  box-shadow: 0 4px 20px rgba(46, 204, 113, 0.6);
+}
+
+.back-hackerrank {
+  background-color: rgba(231, 76, 60, 0.9);
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.6);
+}
+
+.back-projects {
+  background-color: rgba(255, 192, 203, 0.9);
+  color: #333;
+  box-shadow: 0 4px 20px rgba(255, 192, 203, 0.6);
+}
+
+
+    .view-btn {
+      margin-top: 10px;
+      background-color: #ffffff;
+      color: #2ecc71;
+      padding: 5px 12px;
+      font-size: 14px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .view-btn:hover {
+      background-color: #e1e1e1;
+    }
+
+    /* Front card colors */
+    .resume { background-color: beige; color: #333; }
+    .linkedin { background-color: #0077b5; }
+    .github { background-color: #000000; }
+    .achievements { background-color: #2ecc71; }
+    .hackerrank { background-color: #e74c3c; }
+    .projects { background-color: pink; color: #333; }
+  </style>
+</head>
+<body>
+
+  <div class="profile">
+    <img src="21751A3354-AIML-B.jpg" alt="Your Image">
+    <h3>M.Hima Bindu</h3>
+    <p>📞 +91-9392134377</p>
+    <p>📧 mhimabindu54@gmail.com</p>
+  </div>
+
+  <div class="cards-container">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front resume">
+          <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Resume Icon">
+          Resume
+        </div>
+        <div class="flip-card-back">
+          <p>This is my updated resume.</p>
+          <a href="HimaBindu_Java.pdf" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front linkedin">
+  <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/50/05/46/500546a3-6638-2b89-928c-ec27f5631113/AppIcon-0-1x_U007emarketing-0-8-0-85-220-0.png/1200x600wa.png" alt="LinkedIn Icon">
+  LinkedIn
+</div>
+        <div class="flip-card-back">
+          <p>Connect with me professionally.</p>
+          <a href="https://www.linkedin.com/in/m-himabindu/" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front github">
+  <img src="https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png" alt="GitHub Icon">
+  GitHub
+</div>
+        <div class="flip-card-back">
+          <p>My code & open-source contributions.</p>
+          <a href="https://github.com/MHimaBindu1807" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front achievements">
+          <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Trophy Icon">
+          Achievements
+        </div>
+        <div class="flip-card-back">
+          <p>Awards and recognitions in coding contests.</p>
+          <a href="HimaBindu_Java.pdf" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front hackerrank">
+          <img src="https://cdn.iconscout.com/icon/free/png-256/hackerrank-3628885-3030001.png" alt="HackerRank Icon">
+          HackerRank
+        </div>
+        <div class="flip-card-back">
+          <p>My HackerRank profile and certifications.</p>
+          <a href="https://www.hackerrank.com/profile/himabindu1807" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front projects">
+          <img src="https://cdn-icons-png.flaticon.com/512/1006/1006555.png" alt="Projects Icon">
+          Projects
+        </div>
+        <div class="flip-card-back">
+          <p>Weather-health recommendation system & more.</p>
+          <a href="https://github.com/MHimaBindu1807" target="_blank" class="view-btn">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
