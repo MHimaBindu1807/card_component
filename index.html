@@ -4,17 +4,23 @@
   <meta charset="UTF-8">
   <title>Full Stack Developer Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('https://www.canva.com/design/DAGos7rE1Yc/sRvEMoXSwwQ7AMoyJjrFvQ/watch?utm_content=DAGos7rE1Yc&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hdfdf48666c'); 
-      background-size: cover;
-      background-position: center;
-      height: 100vh;
-      overflow-x: hidden;
-    }
+    #bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
 
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  overflow-x: hidden;
+}
     .profile {
       position: absolute;
       top: 20px;
@@ -186,7 +192,10 @@
   </style>
 </head>
 <body>
-
+  <video autoplay muted loop id="bg-video">
+  <source src="Java.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
   <div class="profile">
     <img src="21751A3354-AIML-B.jpg" alt="Your Image">
     <h3>M.Hima Bindu</h3>
